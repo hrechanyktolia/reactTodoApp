@@ -1,5 +1,5 @@
 import React from 'react';
-import {removeTodo, updateTodo, completeTodo} from "./todoReducer";
+import {removeTodo, updateTodo, completeTodo} from "../redux/todoReducer";
 import {useRef} from "react";
 import {useDispatch} from "react-redux";
 import {AiFillEdit} from "react-icons/ai";
@@ -18,7 +18,7 @@ const TodoItem = ({todo}) => {
 
     const update = (id, value, e) => {
         if (e.key === 'Enter') {
-            dispatch(updateTodo({ id, title: value }));
+            dispatch(updateTodo({id, title : value }));
             inputRef.current.disabled = true;
         }
     }
@@ -31,6 +31,7 @@ const TodoItem = ({todo}) => {
                             defaultValue={todo.title}
                             onKeyDown={e => update(todo.id, inputRef.current.value, e)}/>
             <div className="card-btn">
+
                 <button onClick={changeFocus}><AiFillEdit/></button>
 
                 {todo.completed === false &&

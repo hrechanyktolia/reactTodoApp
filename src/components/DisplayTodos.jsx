@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {useSelector} from "react-redux";
 import TodoItem from "./TodoItem";
 
@@ -26,10 +26,10 @@ const DisplayTodos = () => {
 
                 {todos.length > 0 && sort === 'completed'
                     ? todos.map(todo =>
-                            todo.completed === true &&
-                            <TodoItem
-                                key={todo.id}
-                                todo={todo}/>
+                        todo.completed === true &&
+                        <TodoItem
+                            key={todo.id}
+                            todo={todo}/>
                     )
                     : null}
 
